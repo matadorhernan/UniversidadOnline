@@ -1,0 +1,66 @@
+<div class="fix-nav bg-light">
+  <div class="container  p-5">
+    <h2> {{filteredCourses.length}} resultado(s) para <b>{{term}}</b> </h2>
+  </div>
+</div>
+<div class="search-item-box">
+  <div class="container">
+    <div class="row pb-5">
+      <ng-container *ngIf="filteredCourses.length > 0; else elseTemplate">
+        <div class="search-card col-10 mt-3 p-2 rounded bg-white border border-black-50"
+          *ngFor="let course of filteredCourses" [routerLink]="['/curso', course.id]">
+          <div class="d-flex">
+            <img class="rounded" [src]="course.img" height="130px" width="230px">
+            <div class="row w-100">
+              <div class="col-8 w-100 py-3">
+                <h5 class="pl-3 font-weight-normal">{{course.titulo}}</h5>
+                <label class="pl-3 text-black-50">Creado por {{course.autor | titlecase}}</label>
+              </div>
+              <div class="col-4 w-100 py-3 d-flex flex-column align-items-end justify-content-start">
+                <h5 class="font-weight-bold text-right">${{fixCurrency(course.costo) | number: '1.2-2'}} MXN</h5>
+                <div class="d-flex text-white mt-2">
+                  <div class="d-flex w-100">
+                    <div class="s-container position-relative mr-2 d-flex align-items-center">
+                      <div class="star-rate s-back position-absolute">
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                      </div>
+                      <div class="star-rate s-front text-warning position-absolute" #rating>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                        <i class="fa fa-star" aria-hidden="true"></i>
+                      </div>
+                    </div>
+                    <p class="ml-2 mb-0 font-weight-bold text-black-50">{{rateCourse(course.puntuacion, rating)}}</p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </ng-container>
+      <ng-template #elseTemplate>
+        <div class="container py-5">
+          <h4 class="font-weight-bold text-black-50">Lo sentimos, no hemos encontrado resultados para "{{term}}"</h4>
+          <h4 class="font-weight-normal text-black-50"><br> Modifica tu búsqueda. Aquí tienes algunas ideas:</h4>
+          <ul class="text-black-50 pt-3">
+            <li>
+                Asegúrate de que todas las palabras están escritas correctamente.
+            </li>
+            <li>                
+                Prueba con términos de búsqueda diferentes.
+            </li>
+            <li>                
+                Prueba con términos de búsqueda más generales.
+            </li>
+          </ul>
+        </div>
+      </ng-template>
+    </div>
+  </div>
+</div>

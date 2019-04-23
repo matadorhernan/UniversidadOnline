@@ -1,0 +1,274 @@
+/* You can add global styles to this file, and also import other style files */
+@import url('https://fonts.googleapis.com/css?family=Open+Sans:300,400,400i,600,700');
+@import url('https://fonts.googleapis.com/css?family=Varela+Round');
+@import url('https://fonts.googleapis.com/css?family=Signika:300,400,600,700&subset=latin-ext');
+
+:not(i) {
+    font-family: 'Varela Round', 'Open Sans', sans-serif !important;
+}
+
+.logoUO {
+    display: block;
+    width: 30px;
+    height: 30px;
+    background: url(./assets/img/logoUO.svg);
+    background-position: center;
+    background-size: contain;
+}
+
+/* NAVBAR */
+.cart {
+    position: relative;
+    background: #0070e7;
+    width: 40px;
+    height: 40px;
+    line-height: 40px;
+    padding: 0 !important;
+    text-align: center;
+    border-radius: 50%;
+    transition: .3s;
+    cursor: pointer;
+}
+
+.cart .notification {
+    background: #ff5454;
+    font-size: 12px;
+    font-weight: 300;
+    line-height: 15px;
+    height: 15px;
+    padding: 0;
+    width: 25px;
+    transform: translate(25px, -45px);
+    border-radius: 20px;
+}
+
+.nav-cart-item {
+    transition: .5s;
+    position: relative;
+}
+.nav-cart-item:hover{
+    transform: scale(1.03);
+    box-shadow: 0 0 10px 10px #20202011;
+    cursor: pointer;
+}
+.nav-cart-item h4{
+font-size: 13px;
+}
+.nav-cart-item label{
+font-size: 10px;
+}
+.nav-cart-item .btn{
+  border-radius: 15px;
+  height: 15px !important;
+  width: 15px !important;
+  line-height: 15px;
+  padding: 0 !important;
+  margin: 0 !important;
+  position: absolute;
+  right: -7.5px;
+  top: -7.5px;
+  background: #202020;
+  border: none;
+  color: white !important;
+}
+
+.cart:hover + .hover-cart .list-group,
+.hover-cart .list-group:hover {
+    display: block;
+}
+
+.hover-cart .list-group::before {
+    
+    cursor: pointer;
+    content: '';
+    position: absolute;
+    height: 60px;
+    width: 100px;
+    opacity: 0;
+    right: 0;
+    transform: translateY(-55px);
+}
+
+.hover-cart .list-group {
+    
+    display: none;
+    width: 400px !important;
+    right: 0;
+    box-shadow: 0 0 10px 10px #20202011;
+    transition-delay: 1s;
+    z-index: 0;
+}
+
+.hover-cart .list-group-item:nth-child(2) {
+    max-height: 700px !important;
+    overflow-y: auto !important;
+}
+.hover-cart-title {
+    background:#007BFF !important;
+    color: white !important;
+    padding: 10px 10px !important;
+}
+
+.hover-cart-button a{
+    cursor: pointer;
+    font-size: 12px;
+    background: #0070E7;
+    border-radius: 20px;
+    padding: 3px 10px;
+    margin: 0;
+}
+
+/* HEADER */
+
+.search-bar input,
+.search-bar button {
+    border: none;
+    background: #fff;
+    height: 40px;
+}
+
+.search-bar input{
+    border-radius: 50px 0 0 50px;
+}
+.search-bar button {
+    border-radius:0 50px 50px 0;
+    transition: .3s;
+}
+
+.search-bar button:hover {
+    color: white !important;
+    background: #0070E7;
+    border: 1px solid #0070E7 !important;
+}
+
+.header {
+    background: linear-gradient(90deg, #008cff93, #00ff887a), url(./assets/img/bg-1.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-size: cover;
+    height: 600px;
+    width: 100%;
+}
+
+.stats {
+    background: linear-gradient(90deg, #008cff, #00ff88);
+    height: 100px;
+    color: white;
+}
+
+/* FOOTER */
+
+footer .col-3 {
+    font-size: 20px;
+}
+
+footer .cool-bar {
+    margin-top: 5px;
+    height: 5px; width: 100%;
+    border-radius: 2.5px;
+    background: #ffffff20;
+}
+
+/* HOME */
+
+.course-card {
+    width: 280px;
+}
+ img {
+    object-position: center;
+    object-fit: cover;
+}
+.course-card h3 {
+    font-size: 20px;
+    font-weight: 700;
+    text-align: right;
+}
+
+.course-card h4 {
+    font-size: 14px;
+    font-weight: 600;
+    height: 60px;
+    margin-bottom: 10px;
+}
+.course-card label {
+    font-size: 12px;
+}
+
+.star-rate {
+    overflow: hidden;
+    display: flex;
+    flex-wrap: nowrap;
+    align-items: center;
+    width: 90px;
+}
+
+.s-container {
+    width: 90px;
+}
+
+.s-back {
+    color: #e2e2e2;
+}
+
+.card-btn {
+    border-radius: 0 0 .25rem .25rem !important;
+    font-weight: 700 !important;
+    transition: .3s;
+    cursor: pointer;
+}
+
+.card-btn p {
+    transform: translateY(30%);
+    height: 20px;
+    
+    font-size: 15px;
+    width: 0;
+    overflow: hidden;
+    transition: width 1s;
+}
+
+.card-btn:hover {
+    background: #F0F0F0;
+}
+.card-btn:hover>p {
+    width: 100px;
+}
+
+/* ABOUT US */
+
+.about-stats h2{
+    font-size: 50px;
+    padding: 0 20px;
+}
+
+/* COURSE */
+
+.course-header {
+    height: auto;
+    background-image: linear-gradient(90deg, #001c33bb, #000b14e1), url(./assets/img/bg-1.jpg);
+    background-position: bottom;
+    background-attachment: fixed;
+}
+
+.btn-back:hover {
+    color: #202020 !important;
+}
+
+/* SEARCH */
+
+.fix-nav {
+    margin-top: 55.98px;
+}
+
+.search-item-box {
+    min-height: calc(100vh - 349.88px - 141.97px);
+}
+.search-card {
+    transition: .2s;
+}
+.search-card:hover {
+    cursor: pointer;
+    transform: scale(1.03);
+    box-shadow: 0 0 10px 10px #20202011;
+}
+

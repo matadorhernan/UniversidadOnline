@@ -1,0 +1,99 @@
+<!-- HEADER -->
+<div class="header d-flex flex-column align-items-center justify-content-center">
+  <h2 class="text-white display-3 mb-5">
+    Cursos online en español!
+  </h2>
+  <div class="search-bar d-flex align-items-center justify-content-center w-50">
+    <input class="form-control my-sm-0 w-75" placeholder="Buscar" (keyup.enter)="searchValue(searchBarHeader.value)" #searchBarHeader>
+    <button class="btn border border-white text-primary  my-sm-0" (click)="searchValue(searchBarHeader.value)"><i class="fa fa-search"></i></button>
+  </div>
+</div>
+<!-- STATS -->
+<div class="stats w-100 d-flex justify-content-center align-items-center">
+  <div class="container">
+    <div class="row">
+      <div class="col-4">
+        <div class="row">
+          <div class="col-2">
+            <i class="far fa-lightbulb fa-3x"></i>
+          </div>
+          <div class="col-10">
+            <p>20,000 Cursos en línea
+              Explora los temas más recientes</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-4">
+        <div class="row">
+          <div class="col-2">
+            <i class="fas fa-bullseye fa-3x"></i>
+          </div>
+          <div class="col-10">
+            <p>Instructores Expertos
+              Aprende con distintos estilos</p>
+          </div>
+        </div>
+      </div>
+      <div class="col-4">
+        <div class="row">
+          <div class="col-2">
+            <i class="fas fa-tachometer-alt fa-3x"></i>
+          </div>
+          <div class="col-10">
+            <p>Acceso de por vida
+              Aprende a tu ritmo</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+<!-- CURSOS -->
+<section class="bg-light py-5">
+  <div class="container">
+    <h2 class="font-weight-light">Cursos del mes</h2>
+    <div class="row mt-3 d-flex flex-wrap justify-content-center">
+      <div class="course-card p-2" *ngFor="let course of courses">
+        <div class="card">
+          <a [routerLink]="['/curso', course.id]" >
+          <img [src]=course.img class="card-img-top" width="100%" height="150px">
+        </a>
+          <div class="card-body p-0">
+            <h4 class="card-title m-0 pt-3 px-3">{{course.titulo}}</h4>
+            <label class="text-black-50 px-3">{{course.autor | titlecase}}</label>
+            <div class="d-flex text-white">
+              <div class="d-flex w-100 px-3">
+                <div class="s-container position-relative mr-2 d-flex align-items-center">
+                  <div class="star-rate s-back position-absolute">
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                  </div>
+                  <div class="star-rate s-front text-warning position-absolute" #rating>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                    <i class="fa fa-star" aria-hidden="true"></i>
+                  </div>
+                </div>
+                <p class="ml-2 mb-0 font-weight-bold text-black-50">{{rateCourse(course.puntuacion, rating)}}</p>
+                <a class="ml-auto" [routerLink]="['/curso', course.id]"><span class="badge badge-primary">Ver
+                    Curso</span>
+                </a>
+              </div>
+            </div>
+            <hr class="m-0 mt-3 border border-black-50">
+            <a class="btn w-100 card-btn d-flex align-items-center justify-content-center" (click)="buyCourse(course)">
+              <p class="d-flex align-items-center justify-content-center"> <i class="fa fa-cart-plus mr-2"
+                  aria-hidden="true"></i>Agregar</p>
+              ${{fixCurrency(course.costo) | number: '1.2-2'}}
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
